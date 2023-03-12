@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     background-color: rgba(240, 255, 255, 0.7);
+    overflow-y: scroll;
 }
 
 *,
@@ -11,48 +12,57 @@ body {
 }
 
 .bayan {
-    max-width: 500px;
-    margin: 20px auto;
+    max-width: 50rem;
+    margin: .8rem auto;
     transition: all .3s ease-out;
     color: rgb(13, 196, 135);
 }
 
-.bayan:hover {
-    color: black;
-}
+@media (hover: hover) {
+    .bayan:hover {
+        color: black;
+    }
 
-.bayan:hover .bayan-icon {
-    visibility: visible;
-    opacity: 1;
+    .bayan:hover .bayan-icon {
+        visibility: visible;
+        opacity: 1;
+    }
+    .bayan-item:hover > .bayan-meme {
+        width: auto;
+        transform: scaleY(1);
+        max-height: 20rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .bayan-item:hover > .bayan-head > .bayan-icon {
+        background-image: url(assets/svg/circle-check-regular.svg);
+    }
 }
 
 .bayan-item {
-    border: 2px solid rgba(33, 192, 139, 0.5);
+    border: 0.1rem solid rgba(33, 192, 139, 0.5);
     border-radius: 0.4rem;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.bayan-head {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-}
-
-.bayan-item:hover > .bayan-meme {
-    transform: scaleY(1);
-    max-height: 20rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.bayan-item:hover > .bayan-icon {
-    background-image: url(assets/svg/circle-check-regular.svg);
+    padding: 1rem;
+    margin: 0;
 }
 
 .bayan-title {
     display: block;
     cursor: pointer;
-    padding: 1rem;
     transition: all .3s ease-out;
-    flex-basis: 85%;
+    flex-basis: 83%;
     margin: 0;
 }
 
@@ -68,13 +78,14 @@ body {
     max-height: 20rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    width: auto;
 }
 
-.bayan-input:checked ~ .bayan-title {
+.bayan-input:checked ~ .bayan-head > .bayan-title {
     color: black;
 }
 
-.bayan-input:checked ~ .bayan-icon {
+.bayan-input:checked ~ .bayan-head > .bayan-icon {
     background-image: url(assets/svg/circle-check-regular.svg);
 }
 
@@ -84,11 +95,11 @@ body {
     color: rgb(13, 196, 135);
 }
 
-.bayan-item:active > .bayan-icon {
+.bayan-item:active > .bayan-head > .bayan-icon {
     background-image: url(assets/svg/circle-check-colored.svg);
 }
 
-.bayan-item:active > .bayan-title {
+.bayan-item:active > .bayan-head > .bayan-title {
     color: rgb(13, 196, 135);
 }
 
@@ -104,7 +115,7 @@ body {
 }
 
 .bayan-meme {
-    width: auto;
+    width: 70%;
     height: auto;
     max-width: 70%;
     font-size: 1.4rem;
@@ -113,4 +124,22 @@ body {
     transform: scaleY(0);
     max-height: 0;
     margin: auto;
+}
+
+@media screen and (max-width: 1000px ) {
+    body {
+        font-size: 1.4rem;
+    }
+    .bayan {
+        max-width: 30rem;
+    }
+}
+
+@media screen and (max-width: 550px ) {
+    body {
+        font-size: 1.2rem;
+    }
+    .bayan {
+        max-width: 25rem;
+    }
 }
