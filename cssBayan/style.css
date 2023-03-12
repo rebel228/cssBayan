@@ -4,9 +4,10 @@ body {
     background-color: rgba(240, 255, 255, 0.7);
 }
 
-img {
-    max-width: 20rem;
-}
+@keyframes slide {
+    from { display: none; transform: scaleY(0)}
+    to {transform: scaleY(1); display: block;}
+  }
 
 *,
 *:before,
@@ -17,10 +18,17 @@ img {
 .bayan {
     max-width: 500px;
     margin: 20px auto;
+    transition: all .3s ease-out;
+    color: rgb(13, 196, 135);
 }
 
 .bayan:hover {
-    color: rgb(13, 196, 135);
+    color: black;
+}
+
+.bayan:hover .bayan-icon {
+    visibility: visible;
+    opacity: 1;
 }
 
 .bayan-item {
@@ -34,7 +42,10 @@ img {
 }
 
 .bayan-item:hover > .bayan-meme {
-    display: block;
+    transform: scaleY(1);
+    max-height: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .bayan-item:hover > .bayan-icon {
@@ -50,22 +61,36 @@ img {
     margin: 0;
 }
 
-.bayan-title:hover {
-    color: rgb(13, 196, 135);
-}
-
 .bayan-input {
     appearance: none;
+    display: none;
     width: 0;
     height: 0;
 }
 
 .bayan-input:checked ~ .bayan-meme {
-    display: block;
+    transform: scaleY(1);
+    max-height: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bayan-input:checked ~ .bayan-title {
+    color: black;
 }
 
 .bayan-input:checked ~ .bayan-icon {
     background-image: url(assets/svg/circle-check-regular.svg);
+}
+
+.bayan-item:active > .bayan-meme {
+    box-shadow: .2rem .2rem rgb(0, 80, 24, .8), -1em 0 .4em rgb(1, 165, 42, .6);
+    opacity: .8;
+    color: rgb(13, 196, 135);
+}
+
+.bayan-item:active > .bayan-title {
+    color: rgb(13, 196, 135);
 }
 
 .bayan-icon {
@@ -74,13 +99,19 @@ img {
     height: 1rem;
     background-image: url(assets/svg/circle-regular.svg);
     margin: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-out;
 }
 
 .bayan-meme {
-    width: 100%;
+    width: auto;
+    height: auto;
+    max-width: 70%;
     font-size: 1.4rem;
-    display: none;
-    padding: 1rem;
+    padding: 0;
     transition: all .3s ease-out;
+    transform: scaleY(0);
+    max-height: 0;
     margin: auto;
 }
