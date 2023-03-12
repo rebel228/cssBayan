@@ -1,0 +1,62 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    background-color: rgba(240, 255, 255, 0.7);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.bayan {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.bayan:hover {
+    color: rgb(13, 196, 135);
+}
+
+.bayan-item {
+    border: 2px solid rgba(33, 192, 139, 0.5);
+    border-radius: 0.4rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bayan-item:hover > .bayan-meme {
+    display: block;
+}
+
+.bayan-title {
+    display: block;
+    cursor: pointer;
+    padding: 1rem;
+    transition: all .3s ease-out;
+}
+
+.bayan-title:hover {
+    color: rgb(13, 196, 135);
+}
+
+.bayan-input {
+    appearance: none;
+    width: 0;
+    height: 0;
+}
+
+.bayan-input:checked + .bayan-meme {
+    display: block;
+}
+
+.bayan-meme {
+    width: 100%;
+    font-size: 1.4rem;
+    display: none;
+    padding: 1rem;
+    transition: all .3s ease-out;
+}
