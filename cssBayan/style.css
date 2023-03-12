@@ -135,11 +135,17 @@ body {
     }
 }
 
-@media screen and (max-width: 550px ) {
+@media screen and (max-width: 500px ) {
     body {
         font-size: 1.2rem;
     }
     .bayan {
         max-width: 25rem;
+    }
+    .bayan-head {
+        padding: 0.5rem;
+    }
+    .bayan-icon {
+        margin: 0.5rem;
     }
 }
